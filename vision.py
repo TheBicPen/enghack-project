@@ -1,13 +1,14 @@
 #!/usr/bin/env python
-import io
+
 import cv2
+import io
 import os
 from time import sleep
 from google.cloud import vision
 
 def classify(image, client):
     # Imports the Google Cloud client library
-    from google.cloud import vision
+    
 
     # Instantiates a client
     client = vision.ImageAnnotatorClient()
