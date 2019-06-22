@@ -4,3 +4,4 @@ pip install google-cloud-language
 pip install ffmpeg
 
  export GOOGLE_APPLICATION_CREDENTIALS="$(pwd)/creds.json"
+ echo "$(printenv | grep 'GOOGLE_APPLICATION_CREDENTIALS')"
