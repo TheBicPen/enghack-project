@@ -51,7 +51,7 @@ def get_file(path):
 if __name__ == '__main__':
 
     # initialize
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "$(pwd)/credentials/creds.json"
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.getcwd() + "/credentials/creds.json"
 
     detection = ""
     source = ""
