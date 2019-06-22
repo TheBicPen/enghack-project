@@ -51,6 +51,7 @@ if __name__ == '__main__':
         if ret:
             successful_frames += 1    
             classify(str(frame))
+            cv2.imshow(frame)
         else:
             print("Dropped a frame! {0} frames succeeded.".format(successful_frames))
             successful_frames = 0
