@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import io
 import cv2
+import os
 from time import sleep
 
 def classify(image):
@@ -20,6 +21,23 @@ def classify(image):
     print('Labels:')
     for label in labels:
         print(label.description)
+
+def detect_logos(path):
+    """Detects logos in the file."""
+    from google.cloud import vision
+    client = vision.ImageAnnotatorClient()
+
+    with io.open(path, 'rb') as image_file:
+        content = image_file.read()
+
+    image = vision.types.Image(content=content)
+
+    response = client.logo_detection(image=image)
+    logos = response.logo_annotations
+    print('Logos:')
+
+    for logo in logos:
+        print(logo.description)
 
 if __name__ == '__main__':
     # with io.open("scrot.bmp", 'rb') as image_file:

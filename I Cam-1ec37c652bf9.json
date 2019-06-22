@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "sodium-diode-244504",
+  "private_key_id": "1ec37c652bf9ba611279aae53b13965b76d4cab2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDAvCgJrZ59X/0+\n9oHGEAgwA4SNn9nSjzHElLX3WSvNrWmpfhz+arHxTGZ6UegMg979A9U8n6TbvoSn\nkIEUEq3SlwWDoG/Xhr2t0iVt8Cx2oUBb1OZsjvcn3J4BrN8zc3KijPlgKMODnJEP\nMnvfJ+yU5QyZAPj0FS3fyj7EKu6JHEZ++Y9ZKneJb2kXnprkocuPjsnpZQj4vkEF\nEM95FoWsI4I0XFSKdvSD6ezJC1zSXQBE8FEeJgxjabCDJ5+Cl/cxnKtr5xtRQlgr\n0ng6ieoTUrhJW+sa7mE129QmWl9hshRadIYDy9X5atVh55H762vejZ4YP3QZdqP2\nCbG3SF27AgMBAAECggEABU2H/9ArmAEqm29hMwe2OfVMJzC6kl0HPlnlxyLzHhXD\nM6XOer+JGtMCeiNucjMJ+8XTDvfI1j+f2xO87BuhdbWwXKaZkoFYua4aV96E/VSY\nITldMlJyrBbusAFyI10Yo9lOHokF7BqZhnoEnNIL49gzfbLgUVLohWDv/ioSOxUk\nT1/Zhhh70x4D/JKUZyyIZBOhAgIbvFw+1EsgGnanJ49BRPhClO+xUEbNRD3Z5vMe\nka13jQ6IdVTlucVVJYJMLnrx9MAM9mLzdNBrAPSUlJmevvehxcUbLo28voZ8XChQ\nfztiQoSZBZTf3ZzUJpUyjoBVJ5rAg06LO6Z5V9PYaQKBgQDyDE7DDhFnjqYmE/Q7\ncOCH65Srd9xMYeq5nF1Ebc0X3jbhCByGeaQiGkuJJcOI1UkjkkJJvUd2iUr+8dWE\noDQoYU7oAED4SUMyV0JX0lfsMz+DqNrFCaCHFyvaVpm+aoBPzOUYxqUblPjY2u9x\neq5MSpCqoyMcHpJtr3hNYxfQaQKBgQDL2C2v+kRmJIBeKnY/r3CXS0nrSk9AIY9I\nxRux0EjYIp+uXjgnn1k7/0PUDNgTSgwZKOPyJm+VnGfxeoyuLfl3lFmITv5FhAup\n5ebHgL6cPl0Tpz3qExKDrutTSbKjGTgohMZfCCsfo/4e6Pk/wFfppcw1aZ/LIpCP\nmJk/qDv4gwKBgApx1YQ9OysI0Mqb2dIm0MmMtOGhTnRNVV+lC7FEO7Fn+V5Eh1aW\nMSr3j4LfikyBR6KtUQb1j/vheMb/kIMklpuXd1wzhpowLyIg+c/oV7rtizQXOTl/\nbNnnehD147R/zAGlic1D5SQHjaVt7R8seBD6trtmRsGT4CWziLFuMTzhAoGAZeiB\njsTThS0ib/FShKw04a5mGhdgX3Nnqr3ABrlWcZd9tTKtaEGl3vTS+CQjsiEGw11J\n+Dl295jl7jeSNVIOsdWcnSTAwggtvJaPNZYLtRkId1bZATjfvK2qQE1L3XYyOS+H\n7OKsjHj0Bof6dAC48rpMyTcxB+ET3HYxxz1YHfkCgYBRLeRLtIKhL5FM8iubNqk2\n8UvHHQnD8uVXIwl7xg0UQ1c16juwxCal30nGysqAjAoGbOebi402c1y9WTvQGlV2\nWPKrGB7wB+ErGzRqmI707TiSUd6e4sGSgozvTMSoQF1XQYtsp2zteAJsFCRMWsJc\nyNqh4B2uY49J90FQauuwjA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "vision-api@sodium-diode-244504.iam.gserviceaccount.com",
+  "client_id": "108898763551287510631",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vision-api%40sodium-diode-244504.iam.gserviceaccount.com"
+}
