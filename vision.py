@@ -65,21 +65,28 @@ if __name__ == '__main__':
         successful_frames = 0
         failed_frames = 0
         print("Press q to quit.")
-        while(stream.isOpened() and not (cv2.waitKey(10) & 0xFF == ord('q'))):
+        capture = False
+        while(stream.isOpened()):
             # Capture frame-by-frame 
             ret, frame = stream.read()
+            key = cv2.waitKey(1000) & 0xFF # delay
+            if key == ord('space'):
+                capture = True
+            elif key == ord('q'):
+                break
             if ret:
                 ret2,img = cv2.imencode(".jpg", frame)
                 img = img.tobytes()
                 # print(img)
                 cv2.imshow("Video Frame", frame)
-                successful_frames += 1    
-                if detection == 0:
-                    classify(img, get_client())
-                elif detection == 1:
-                    detect_logos(img, get_client())
+                successful_frames += 1
+                if capture:
+                    if detection == 0:
+                        classify(img, get_client())
+                    elif detection == 1:
+                        detect_logos(img, get_client())
+                    break
             else:
-                
                 successful_frames += 1
         print("{0}/{1} frames succeeded.\n".format(successful_frames, successful_frames+failed_frames))
         stream.release()
