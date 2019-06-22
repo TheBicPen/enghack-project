@@ -45,6 +45,7 @@ def get_file(path):
     """
     with io.open(path, 'rb') as image_file:
         content = image_file.read()
+        print(content)
     return content
 
 
@@ -64,6 +65,7 @@ if __name__ == '__main__':
         ret, frame = stream.read()
         if ret:
             img = str(cv2.imencode(".jpg", frame))
+            print(img)
             cv2.imshow("Video Frame", frame)
             cv2.waitKey(2000)
             # successful_frames += 1    
