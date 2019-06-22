@@ -16,8 +16,6 @@ cryptography==2.6.1
 cupshelpers==1.0
 cycler==0.10.0
 decorator==4.4.0
-discord==1.0.1
-discord.py==1.2.2
 distlib==0.2.9
 distro==1.4.0
 docopt==0.6.2
@@ -52,7 +50,6 @@ npyscreen==4.10.5
 numpy==1.16.4
 opencv-python==4.1.0.25
 packaging==19.0
-pacman-mirrors==4.14.2
 pep517==0.5.0
 Pillow-SIMD==5.3.0.post1
 ply==3.11

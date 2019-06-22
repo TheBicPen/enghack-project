@@ -28,7 +28,7 @@ if __name__ == '__main__':
     stream = cv2.VideoCapture(0)
     successful_frames = 0
     while(True):
-        sleep(0.05) # 20fps
+        sleep(1) # 1 fps
         ret, frame = stream.read()
         if ret:
             successful_frames += 1    

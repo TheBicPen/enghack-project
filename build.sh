@@ -7,12 +7,12 @@ sudo apt install python3-pip
 
 pip install -r requirements.txt
 pip3 install -r requirements.txt
-pip install opencv-python
-pip install python-opencv
-pip install google-cloud
-pip install google-cloud-vision
-pip install google-cloud-language
-pip install ffmpeg
+pip3 install opencv-python
+pip3 install python-opencv
+pip3 install google-cloud
+pip3 install google-cloud-vision
+pip3 install google-cloud-language
+pip3 install ffmpeg
 
 sudo apt install python-opencv
 sudo apt install python3-opencv
