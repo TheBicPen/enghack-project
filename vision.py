@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 import io
+import cv2
+from time import sleep
 
 def classify(image):
     # Imports the Google Cloud client library
@@ -20,8 +22,17 @@ def classify(image):
         print(label.description)
 
 if __name__ == '__main__':
-    
-    with io.open("/home/alex/Pictures/backgrounds/glowing_lake.jpg", 'rb') as image_file:
-        content = image_file.read()
+    # with io.open("scrot.bmp", 'rb') as image_file:
+    #     content = image_file.read()
 
-    classify(content)
+    stream = cv2.VideoCapture(0)
+    successful_frames = 0
+    while(True):
+        sleep(0.05) # 20fps
+        ret, frame = stream.read()
+        if ret:
+            successful_frames += 1    
+            classify(frame)
+        else:
+            print("Dropped a frame! {0} frames succeeded.".format(successful_frames))
+            successful_frames = 0
