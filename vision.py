@@ -64,12 +64,13 @@ if __name__ == '__main__':
         ret, frame = stream.read()
         if ret:
             img = str(frame)
+            cv2.imshow("Video Frame", frame)
+            cv2.waitKey(2000)
             # successful_frames += 1    
             if detection == 0:
                 classify(img, get_client())
             elif detection == 1:
                 detect_logos(img, get_client())
-            cv2.imshow("Video Frame", frame)
         else:
             print("Dropped a frame! {0} frames succeeded.".format(successful_frames))
             successful_frames = 0
