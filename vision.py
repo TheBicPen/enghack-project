@@ -50,7 +50,7 @@ if __name__ == '__main__':
         ret, frame = stream.read()
         if ret:
             successful_frames += 1    
-            classify(frame)
+            classify(str(frame))
         else:
             print("Dropped a frame! {0} frames succeeded.".format(successful_frames))
             successful_frames = 0
