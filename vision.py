@@ -53,7 +53,7 @@ if __name__ == '__main__':
     source = ""
     while source not in list(range(2)):
         source = int(input("Select operation mode:\n0: webcam capture\n1: file\n"))
-        print(source, type(source))
+        # print(source, type(source))
     while detection not in list(range(2)):
         detection = int(input("Select what to detect:\n0: any objects\n1: logos\n"))
     if source == 0:
@@ -69,7 +69,7 @@ if __name__ == '__main__':
                 classify(img, get_client())
             elif detection == 1:
                 detect_logos(img, get_client())
-            cv2.imshow(frame)
+            cv2.imshow("Video Frame", frame)
         else:
             print("Dropped a frame! {0} frames succeeded.".format(successful_frames))
             successful_frames = 0
