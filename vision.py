@@ -6,6 +6,7 @@ import os
 from time import sleep
 from google.cloud import vision
 
+
 def classify(image, client):
     # Imports the Google Cloud client library
     
@@ -48,6 +49,10 @@ def get_file(path):
 
 
 if __name__ == '__main__':
+
+    # initialize
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS='] = "$(pwd)/credentials/creds.json"
+
     detection = ""
     source = ""
     while source not in list(range(2)):
