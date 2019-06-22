@@ -1,15 +1,27 @@
 #!/usr/bin/env python
+import io
 
-def classify():
+def classify(image):
     # Imports the Google Cloud client library
     from google.cloud import vision
 
     # Instantiates a client
     client = vision.ImageAnnotatorClient()
 
-    # The text to analyze
+    image_types = vision.types.Image(content=image)
     
+    
+    # Performs label detection on the image file
+    response = client.label_detection(image=image_types)
+    labels = response.label_annotations
+
+    print('Labels:')
+    for label in labels:
+        print(label.description)
 
 if __name__ == '__main__':
-    run_quickstart()
+    
+    with io.open("/home/alex/Pictures/backgrounds/glowing_lake.jpg", 'rb') as image_file:
+        content = image_file.read()
 
+    classify(content)
