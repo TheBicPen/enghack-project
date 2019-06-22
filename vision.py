@@ -1,12 +1,13 @@
 #!/usr/bin/env python
-import io
+
 import cv2
 import os
 from time import sleep
+from google.cloud import vision
 
 def classify(image):
     # Imports the Google Cloud client library
-    from google.cloud import vision
+    
 
     # Instantiates a client
     client = vision.ImageAnnotatorClient()
@@ -24,10 +25,9 @@ def classify(image):
 
 def detect_logos(path):
     """Detects logos in the file."""
-    from google.cloud import vision
     client = vision.ImageAnnotatorClient()
 
-    with io.open(path, 'rb') as image_file:
+    with open(path, 'rb') as image_file:
         content = image_file.read()
 
     image = vision.types.Image(content=content)
