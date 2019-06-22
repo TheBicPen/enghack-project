@@ -63,7 +63,7 @@ if __name__ == '__main__':
         #     sleep(1) # 1 fps
         ret, frame = stream.read()
         if ret:
-            img = cv2.imencode(".jpg", frame)
+            img = str(cv2.imencode(".jpg", frame))
             cv2.imshow("Video Frame", frame)
             cv2.waitKey(2000)
             # successful_frames += 1    
