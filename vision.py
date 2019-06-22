@@ -9,10 +9,6 @@ from google.cloud import vision
 def classify(image, client):
     # Imports the Google Cloud client library
     
-
-    # Instantiates a client
-    client = vision.ImageAnnotatorClient()
-
     image_types = vision.types.Image(content=image)
     
     
@@ -23,18 +19,20 @@ def classify(image, client):
     print('Labels:')
     for label in labels:
         print(label.description)
+    return labels
 
 def detect_logos(image, client):
     """Detects logos in the file."""
     
-    image = vision.types.Image(content=image)
+    image_types = vision.types.Image(content=image)
 
-    response = client.logo_detection(image=image)
+    response = client.logo_detection(image=image_types)
     logos = response.logo_annotations
     print('Logos:')
 
     for logo in logos:
         print(logo.description)
+    return logos
 
 def get_client():
     return vision.ImageAnnotatorClient()
@@ -66,7 +64,7 @@ if __name__ == '__main__':
         if ret:
             ret2,img = cv2.imencode(".jpg", frame)
             img = img.tobytes()
-            print(img)
+            # print(img)
             cv2.imshow("Video Frame", frame)
             cv2.waitKey(2000)
             # successful_frames += 1    
