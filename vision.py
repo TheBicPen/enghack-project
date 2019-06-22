@@ -63,23 +63,27 @@ if __name__ == '__main__':
     if source == 0:
         stream = cv2.VideoCapture(0)
         successful_frames = 0
-        # while(True):
-        #     sleep(1) # 1 fps
-        ret, frame = stream.read()
-        if ret:
-            ret2,img = cv2.imencode(".jpg", frame)
-            img = img.tobytes()
-            # print(img)
-            cv2.imshow("Video Frame", frame)
-            cv2.waitKey(2000)
-            # successful_frames += 1    
-            if detection == 0:
-                classify(img, get_client())
-            elif detection == 1:
-                detect_logos(img, get_client())
-        else:
-            print("Dropped a frame! {0} frames succeeded.".format(successful_frames))
-            successful_frames = 0
+        failed_frames = 0
+        print("Press q to quit.")
+        while(stream.isOpened() and not (cv2.waitKey(10) & 0xFF == ord('q'))):
+            # Capture frame-by-frame 
+            ret, frame = stream.read()
+            if ret:
+                ret2,img = cv2.imencode(".jpg", frame)
+                img = img.tobytes()
+                # print(img)
+                cv2.imshow("Video Frame", frame)
+                successful_frames += 1    
+                if detection == 0:
+                    classify(img, get_client())
+                elif detection == 1:
+                    detect_logos(img, get_client())
+            else:
+                
+                successful_frames += 1
+        print("{0}/{1} frames succeeded.\n".format(successful_frames, successful_frames+failed_frames))
+        stream.release()
+        cv2.destroyAllWindows()
     elif source == 1:
         path = input("input a path to an image:\n")
         img = get_file(path)
