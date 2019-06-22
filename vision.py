@@ -70,7 +70,7 @@ if __name__ == '__main__':
             # Capture frame-by-frame 
             ret, frame = stream.read()
             key = cv2.waitKey(1000) & 0xFF # delay
-            if key == ord('space'):
+            if key == ord(' '):
                 capture = True
             elif key == ord('q'):
                 break
