@@ -49,7 +49,8 @@ def get_file(path):
     return content
 
 def get_image_classifications(source, detection):
-    labels=[]
+    labels = None
+    img = None
     if source == 0:
         stream = cv2.VideoCapture(0)
         successful_frames = 0
