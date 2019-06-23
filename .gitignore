@@ -3,3 +3,5 @@ credentials/*
 .python-version
 scrot.bmp
 out.*
+labels.txt
+labels_ez.txt

@@ -94,7 +94,7 @@ def get_image_classifications(source, detection):
 if __name__ == '__main__':
 
     # initialize
-    print("begin")
+    # print("begin")
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.getcwd() + "/credentials/creds.json"
 
     detection = ""
@@ -110,8 +110,27 @@ if __name__ == '__main__':
     try:
         # print(cv2.imdecode(img, cv2.IMREAD_COLOR))
         cv2.imwrite("out.jpg", cv2.imdecode(img, cv2.IMREAD_COLOR))
+        
     except:
+        if label_file is not None:
+            label_file.close()
         print("imdecode failed")
+        exit(1)
+    try:
+        label_file = io.open('labels.txt', 'w')
+        # label_file.write(str(labels))
+        label_ez_file = io.open('labels_ez.txt', 'w')
+        for label in labels:
+            label_ez_file.write(label.description + "\n")
+            label_file.write(str(label) + "\n")
+        label_file.close()
+        label_ez_file.close()
+    except Exception as e:
+        if label_ez_file is not None:
+            label_ez_file.close()
+        if label_file is not None:
+            label_file.close()
+        print("label writing failed:", e)
         exit(1)
     # for label in labels:
     #     print(label)
