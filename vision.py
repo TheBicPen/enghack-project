@@ -44,7 +44,7 @@ def get_file(path):
     """
     with io.open(path, 'rb') as image_file:
         content = image_file.read()
-        print(content)
+        # print(content)
     return content
 
 
@@ -69,7 +69,7 @@ if __name__ == '__main__':
         while(stream.isOpened()):
             # Capture frame-by-frame 
             ret, frame = stream.read()
-            key = cv2.waitKey(1000) & 0xFF # delay
+            key = cv2.waitKey(100) & 0xFF # delay
             if key == ord(' '):
                 capture = True
             elif key == ord('q'):
