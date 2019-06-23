@@ -2,3 +2,4 @@ credentials/*
 .vscode/
 .python-version
 scrot.bmp
+out.*

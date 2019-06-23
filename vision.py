@@ -5,6 +5,7 @@ import io
 import os
 from time import sleep
 from google.cloud import vision
+import numpy as np
 
 
 def classify(image, client):
@@ -47,19 +48,7 @@ def get_file(path):
         # print(content)
     return content
 
-
-if __name__ == '__main__':
-
-    # initialize
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.getcwd() + "/credentials/creds.json"
-
-    detection = ""
-    source = ""
-    while source not in list(range(2)):
-        source = int(input("Select operation mode:\n0: webcam capture\n1: file\n"))
-        # print(source, type(source))
-    while detection not in list(range(2)):
-        detection = int(input("Select what to detect:\n0: any objects\n1: logos\n"))
+def get_image_classifications(source, detection):
     if source == 0:
         stream = cv2.VideoCapture(0)
         successful_frames = 0
@@ -82,9 +71,9 @@ if __name__ == '__main__':
                 successful_frames += 1
                 if capture:
                     if detection == 0:
-                        classify(img, get_client())
+                        labels = classify(img, get_client())
                     elif detection == 1:
-                        detect_logos(img, get_client())
+                        labels = detect_logos(img, get_client())
                     break
             else:
                 successful_frames += 1
@@ -94,7 +83,36 @@ if __name__ == '__main__':
     elif source == 1:
         path = input("input a path to an image:\n")
         img = get_file(path)
+        # labels=[] # piss off compiler
         if detection == 0:
-                classify(img, get_client())
+            labels = classify(img, get_client())
         elif detection == 1:
-            detect_logos(img, get_client())
+            labels = detect_logos(img, get_client())
+        
+    return labels, img
+
+if __name__ == '__main__':
+
+    # initialize
+    print("begin")
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.getcwd() + "/credentials/creds.json"
+
+    detection = ""
+    source = ""
+    while source not in list(range(2)):
+        source = int(input("Select operation mode:\n0: webcam capture\n1: file\n"))
+        # print(source, type(source))
+    while detection not in list(range(2)):
+        detection = int(input("Select what to detect:\n0: any objects\n1: logos\n"))
+    labels, img = get_image_classifications(source, detection)
+    # print(type(img))
+    img = np.frombuffer(img, dtype=np.uint8) 
+    try:
+        # print(cv2.imdecode(img, cv2.IMREAD_COLOR))
+        cv2.imwrite("out.jpg", cv2.imdecode(img, cv2.IMREAD_COLOR))
+    except:
+        print("imdecode failed")
+        exit(1)
+    # for label in labels:
+    #     print(label)
+    exit(0)

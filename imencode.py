@@ -9,9 +9,9 @@ with io.open(path, 'rb') as image_file:
     cv2_image = cv2.imread(path)
     res, cv2_encoded = cv2.imencode(".jpg", cv2_image)
     cv2_bytes = cv2_encoded.tobytes()
-    print(content)
-    print(cv2_encoded)
-    print(cv2_bytes)
+    print(content[:100])
+    print(cv2_encoded[:100])
+    print(cv2_bytes[:100])
 
     # print("raw_content = ", content[:400])
     # decoded = cv2.imread(path)
