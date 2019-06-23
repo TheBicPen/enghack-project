@@ -60,7 +60,7 @@ def get_image_classifications(source, detection):
         while(stream.isOpened()):
             # Capture frame-by-frame 
             ret, frame = stream.read()
-            key = cv2.waitKey(100) & 0xFF # delay
+            key = cv2.waitKey(10) & 0xFF # delay
             if key == ord(' '):
                 capture = True
             elif key == ord('q'):
